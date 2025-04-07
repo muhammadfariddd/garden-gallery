@@ -1,0 +1,254 @@
+/* Custom CSS for Garden Studio */
+
+/* Import alternate fonts */
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Raleway:wght@300;400;500;600;700&display=swap");
+
+/* Alternative Font Classes */
+.font-playfair {
+    font-family: "Playfair Display", serif;
+}
+
+.font-raleway {
+    font-family: "Raleway", sans-serif;
+}
+
+/* Header & Navbar Styles */
+#header-container {
+    transform: translateY(0);
+    transition: transform 0.3s ease;
+}
+
+#header-container.scrolled #contact-info {
+    height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+    overflow: hidden;
+    opacity: 0;
+    border-bottom-width: 0;
+}
+
+#contact-info {
+    height: auto;
+    opacity: 1;
+    transition: all 0.3s ease;
+}
+
+#menu-container {
+    padding-top: 1rem;
+}
+
+#header-container.scrolled #menu-container {
+    padding-top: 0;
+}
+
+#navbar {
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+#navbar.scrolled {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#navbar.scrolled .nav-logo {
+    color: #047857;
+}
+
+#navbar.scrolled .nav-link {
+    color: #374151;
+}
+
+#navbar.scrolled .nav-link:hover {
+    color: #047857;
+}
+
+#navbar.scrolled .nav-button {
+    color: white;
+    background-color: #047857;
+    border-color: #047857;
+}
+
+#navbar.scrolled .nav-button:hover {
+    background-color: #065f46;
+    border-color: #065f46;
+}
+
+/* Mobile Bottom Navbar Styles */
+.mobile-bottom-navbar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    z-index: 9999 !important;
+    background-color: white !important;
+    border-top: 1px solid #e5e7eb !important;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05) !important;
+    display: none !important;
+    height: 4rem !important;
+}
+
+/* Tampilkan mobile navbar hanya di mobile */
+@media (max-width: 768px) {
+    .mobile-bottom-navbar {
+        display: flex !important;
+        bottom: 0 !important;
+    }
+}
+
+/* Mobile Nav Link Active State */
+.mobile-nav-link.active {
+    color: #166534 !important;
+    background-color: #dcfce7 !important;
+}
+
+.mobile-nav-link.active svg {
+    color: #166534 !important;
+}
+
+.mobile-nav-link.active .mobile-nav-indicator {
+    opacity: 1 !important;
+}
+
+/* Custom color classes beyond Tailwind defaults */
+.text-leaf {
+    color: #4caf50;
+}
+
+.bg-leaf {
+    background-color: #4caf50;
+}
+
+.text-forest {
+    color: #2e7d32;
+}
+
+.bg-forest {
+    background-color: #2e7d32;
+}
+
+.text-moss {
+    color: #81c784;
+}
+
+.bg-moss {
+    background-color: #81c784;
+}
+
+.text-mint {
+    color: #c8e6c9;
+}
+
+.bg-mint {
+    background-color: #c8e6c9;
+}
+
+/* Custom Gradients */
+.bg-forest-gradient {
+    background: linear-gradient(135deg, #2e7d32 0%, #1b5e20 100%);
+}
+
+.bg-mint-gradient {
+    background: linear-gradient(135deg, #81c784 0%, #4caf50 100%);
+}
+
+.bg-earth-gradient {
+    background: linear-gradient(135deg, #8d6e63 0%, #4e342e 100%);
+}
+
+/* Custom Animations */
+.hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Card styles */
+.plant-card {
+    transition: all 0.3s ease;
+    border-radius: 0.5rem;
+    overflow: hidden;
+}
+
+.plant-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+        0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.plant-card img {
+    transition: transform 0.5s ease;
+}
+
+.plant-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Button styles */
+.btn-leaf {
+    background-color: #4caf50;
+    color: white;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-leaf:hover {
+    background-color: #388e3c;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.btn-leaf-outline {
+    background-color: transparent;
+    color: #4caf50;
+    border: 2px solid #4caf50;
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-leaf-outline:hover {
+    background-color: #4caf50;
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Section styling */
+.section-title {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 2rem;
+}
+
+.section-title::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #4caf50;
+}
+
+/* Custom spacing utilities */
+.section-spacing {
+    padding: 6rem 0;
+}
+
+@media (max-width: 768px) {
+    .section-spacing {
+        padding: 3rem 0;
+    }
+}

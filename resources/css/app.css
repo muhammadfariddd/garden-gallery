@@ -1,0 +1,152 @@
+/* Import Google Fonts - Poppins and Montserrat */
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap");
+
+@import "tailwindcss";
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Montserrat", sans-serif;
+}
+
+/* Navbar Styles */
+#navbar {
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+#navbar.scrolled {
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+        0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+#navbar.scrolled .nav-logo {
+    color: #047857;
+}
+
+#navbar.scrolled .nav-link {
+    color: #374151;
+}
+
+#navbar.scrolled .nav-link:hover {
+    color: #047857;
+}
+
+#navbar.scrolled .nav-button {
+    color: white;
+    background-color: #047857;
+    border-color: #047857;
+}
+
+#navbar.scrolled .nav-button:hover {
+    background-color: #065f46;
+    border-color: #065f46;
+}
+
+#navbar.scrolled .nav-toggle-icon {
+    color: #111827;
+}
+
+/* Menu Toggle */
+#menu-toggle:checked + #menu {
+    display: block !important;
+}
+
+#dropdown-toggle:checked + #dropdown {
+    display: block;
+}
+
+/* Arrow Link Animation */
+a,
+span {
+    position: relative;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+a.arrow,
+span.arrow {
+    display: flex;
+    align-items: center;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+a.arrow .arrow_icon,
+span.arrow .arrow_icon {
+    position: relative;
+    margin-left: 0.5em;
+}
+
+a.arrow .arrow_icon svg,
+span.arrow .arrow_icon svg {
+    transition: transform 0.3s 0.02s ease;
+    margin-right: 1em;
+}
+
+a.arrow .arrow_icon::before,
+span.arrow .arrow_icon::before {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #38b2ac;
+    transform: translateY(-50%);
+    transition: width 0.3s ease;
+}
+
+a.arrow:hover .arrow_icon::before,
+span.arrow:hover .arrow_icon::before {
+    width: 1em;
+}
+
+a.arrow:hover .arrow_icon svg,
+span.arrow:hover .arrow_icon svg {
+    transform: translateX(0.75em);
+}
+
+/* Page Layout */
+.cover {
+    border-bottom-right-radius: 128px;
+}
+
+@media (min-width: 1024px) {
+    .cover {
+        border-bottom-right-radius: 256px;
+    }
+}
+
+/* Background */
+.bg-green-earth-gradient {
+    background: linear-gradient(90deg, #4caf50 0%, #3a725f 100%);
+}
+
+/* Top spacing utility for fixed navbar */
+.pt-safe {
+    padding-top: 6rem; 
+}
+
+/* Mobile Bottom Nav Active State */
+.mobile-nav-link.active {
+    color: #166534;
+    background-color: #dcfce7;
+}
+
+.mobile-nav-link.active svg {
+    color: #166534;
+}
+
+.mobile-nav-link.active .mobile-nav-indicator {
+    opacity: 1;
+}

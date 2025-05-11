@@ -5,7 +5,7 @@
         <h2 class="text-xl font-bold text-white">Get in touch with us today! <br class="block md:hidden">Call
             us on: +62 895 3636 48153</h2>
         <a href="#"
-            class="px-8 py-4 bg-white text-green-600 rounded inline-block font-semibold md:ml-8 mt-4 md:mt-0">Shop
+            class="px-8 py-4 bg-white text-green-600 rounded inline-block font-semibold md:ml-8 mt-4 md:mt-0 hover:bg-green-500 hover:text-white">Shop
             Now</a>
     </div>
 </section>

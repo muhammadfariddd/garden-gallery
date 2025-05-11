@@ -6,10 +6,11 @@ export default defineConfig({
     plugins: [
         laravel({
             input: [
-                "resources/css/app.css", 
-                "resources/css/custom.css", 
+                "resources/css/app.css",
+                "resources/css/custom.css",
                 "resources/js/app.js",
-                "resources/js/custom.js"
+                "resources/js/custom.js",
+                "resources/js/animations.js",
             ],
             refresh: true,
         }),

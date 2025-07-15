@@ -18,7 +18,27 @@
                         </svg>
                         Informasi Pengiriman
                     </h2>
-                    <form action="{{ route('checkout.process') }}" method="POST" id="checkout-form">
+                    @if ($errors->any())
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                            <ul class="list-disc pl-5">
+                                @foreach ($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+                    @if (session('error'))
+                        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                            {{ session('error') }}
+                        </div>
+                    @endif
+                    @if (session('success'))
+                        <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                            {{ is_array(session('success')) ? session('success.title') : session('success') }}
+                        </div>
+                    @endif
+                    <form action="{{ route('checkout.process') }}" method="POST" id="checkout-form"
+                        enctype="multipart/form-data">
                         @csrf
                         <div class="space-y-4">
                             <div>
@@ -65,6 +85,21 @@
                             </div>
                         </div>
                         <div class="mt-8">
+                            <div class="text-center mb-4">
+                                <h2 class="text-lg font-bold mb-2">Pembayaran via QRIS</h2>
+                                <img src="{{ asset('images/scan_qr.png') }}" alt="QRIS"
+                                    class="w-48 mx-auto rounded shadow" />
+                                <p class="mt-2">Scan QRIS di atas dengan aplikasi e-wallet/bank Anda.<br>
+                                    Setelah transfer, upload bukti pembayaran di bawah ini.</p>
+                            </div>
+                            <div class="mb-4">
+                                <label for="bukti_transfer" class="block font-semibold mb-1">Upload Bukti Transfer</label>
+                                <input type="file" name="bukti_transfer" id="bukti_transfer" accept="image/*" required
+                                    class="border rounded p-2 w-full" />
+                                @error('bukti_transfer')
+                                    <div class="text-red-500 text-sm">{{ $message }}</div>
+                                @enderror
+                            </div>
                             <button type="submit"
                                 class="w-full bg-gradient-to-r from-green-500 to-green-700 text-white px-6 py-3 rounded-lg font-semibold hover:from-green-600 hover:to-green-800 transition duration-200 flex items-center justify-center shadow-lg">
                                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none"
@@ -92,7 +127,7 @@
                             @if (count($cartItems) > 0)
                                 @foreach ($cartItems as $item)
                                     <div class="flex items-center space-x-4">
-                                        <img src="{{ asset('images/' . $item['product']->image) }}"
+                                        <img src="{{ asset('storage/' . $item['product']->image) }}"
                                             alt="{{ $item['product']->name }}"
                                             class="w-20 h-20 object-cover rounded-lg border border-green-200">
                                         <div class="flex-1">
@@ -120,39 +155,6 @@
                                 <span class="text-gray-900">Total</span>
                                 <span class="text-green-700">Rp{{ number_format($total + 20000, 0, ',', '.') }}</span>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Metode Pembayaran -->
-                    <div class="bg-white rounded-2xl shadow-xl p-8 border border-green-100">
-                        <h2 class="text-xl font-semibold text-green-700 mb-6 flex items-center gap-2">
-                            <svg class="w-6 h-6 text-green-500" fill="none" stroke="currentColor"
-                                viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M12 8c-1.657 0-3 1.343-3 3s1.343 3 3 3 3-1.343 3-3-1.343-3-3-3zm0 0V4m0 10v6m8-8h-6m-4 0H4" />
-                            </svg>
-                            Metode Pembayaran
-                        </h2>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <input type="radio" name="payment_method" id="transfer" value="transfer" checked
-                                    class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300">
-                                <label for="transfer" class="ml-3 block text-sm font-medium text-gray-700">
-                                    Transfer Bank
-                                </label>
-                            </div>
-                            <div class="flex items-center">
-                                <input type="radio" name="payment_method" id="ewallet" value="ewallet"
-                                    class="h-4 w-4 text-green-600 focus:ring-green-500 border-gray-300">
-                                <label for="ewallet" class="ml-3 block text-sm font-medium text-gray-700">
-                                    E-Wallet (OVO, GoPay, DANA, dll)
-                                </label>
-                            </div>
-                        </div>
-                        <div class="mt-4 text-xs text-gray-500">
-                            <b>Transfer Bank:</b> Anda akan menerima instruksi pembayaran dan nomor rekening setelah
-                            checkout.<br>
-                            <b>E-Wallet:</b> Anda akan menerima QR code atau nomor tujuan pembayaran setelah checkout.
                         </div>
                     </div>
                 </div>

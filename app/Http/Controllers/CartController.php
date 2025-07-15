@@ -99,7 +99,7 @@ class CartController extends Controller
             'address' => 'required|string',
             'city' => 'required|string|max:255',
             'postal_code' => 'required|string|max:10',
-            'payment_method' => 'required|in:transfer,ewallet',
+            'bukti_transfer' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
         $userId = auth()->id();
         $cartItems = OrderItem::whereNull('order_id')->where('user_id', $userId)->with('product')->get();
@@ -109,15 +109,20 @@ class CartController extends Controller
         DB::beginTransaction();
         try {
             $total = $cartItems->sum('subtotal');
+            $buktiPath = null;
+            if ($request->hasFile('bukti_transfer')) {
+                $buktiPath = $request->file('bukti_transfer')->store('bukti_transfer', 'public');
+            }
             $order = Order::create([
                 'user_id' => $userId,
                 'order_number' => 'ORD-' . strtoupper(Str::random(10)),
                 'total_amount' => $total + 20000,
                 'shipping_address' => $request->address,
                 'shipping_method' => 'Standard',
-                'payment_method' => $request->payment_method,
+                'payment_method' => 'qris',
                 'status' => 'pending',
-                'payment_status' => 'pending'
+                'payment_status' => 'pending',
+                'bukti_transfer' => $buktiPath,
             ]);
             foreach ($cartItems as $item) {
                 $item->order_id = $order->id;
@@ -127,7 +132,7 @@ class CartController extends Controller
             DB::commit();
             session()->flash('success', [
                 'title' => 'Checkout Berhasil!',
-                'text' => 'Pesanan Anda berhasil dibuat! Silakan lakukan pembayaran sesuai instruksi.',
+                'text' => 'Pesanan Anda berhasil dibuat! Bukti pembayaran sudah diterima.',
                 'icon' => 'success'
             ]);
             return redirect()->route('orders.show', $order);

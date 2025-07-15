@@ -1,16 +1,3 @@
-<!-- start cta -->
-<section id="contact"
-    class="relative bg-green-earth-gradient px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-12 text-center md:text-left">
-    <div class="md:flex md:items-center md:justify-center">
-        <h2 class="text-xl font-bold text-white">Get in touch with us today! <br class="block md:hidden">Call
-            us on: +62 895 3636 48153</h2>
-        <a href="#"
-            class="px-8 py-4 bg-white text-green-600 rounded inline-block font-semibold md:ml-8 mt-4 md:mt-0 hover:bg-green-500 hover:text-white">Shop
-            Now</a>
-    </div>
-</section>
-<!-- end cta -->
-
 <!-- start footer -->
 <footer class="relative bg-gray-900 text-white px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-12 lg:py-24">
     <div class="flex flex-col md:flex-row">

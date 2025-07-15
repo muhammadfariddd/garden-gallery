@@ -24,7 +24,7 @@
                                     <!-- Product Info -->
                                     <div class="col-span-6 md:col-span-6">
                                         <div class="flex items-center space-x-4">
-                                            <img src="{{ asset('images/' . $item->product->image) }}"
+                                            <img src="{{ asset('storage/' . $item->product->image) }}"
                                                 alt="{{ $item->product->name }}" class="w-16 h-16 object-cover rounded-md">
                                             <div>
                                                 <h3 class="font-medium text-gray-900">{{ $item->product->name }}</h3>

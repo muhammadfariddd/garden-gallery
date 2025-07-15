@@ -16,7 +16,8 @@ class Order extends Model
         'shipping_address',
         'shipping_method',
         'payment_method',
-        'payment_status'
+        'payment_status',
+        'bukti_transfer'
     ];
 
     public function user(): BelongsTo

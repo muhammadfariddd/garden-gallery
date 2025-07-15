@@ -1,9 +1,9 @@
 {{-- Desktop Navbar --}}
-<div id="navbar" class="fixed w-full z-50 transition-all duration-300 py-4 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64">
+<div id="navbar" class="fixed w-full z-50 transition-all duration-300 py-2 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64">
     <div class="flex flex-wrap items-center justify-between">
         <div class="w-full md:w-auto flex items-center justify-between">
-            <a href="/" class="nav-logo font-bold text-2xl transition-colors duration-300 text-white">
-                Garden Gallery
+            <a href="/" class="nav-logo font-bold text-2xl transition-colors duration-300">
+                <img src="{{ asset('images/logo-navbar.png') }}" alt="Logo" class="w-30 h-20">
             </a>
 
             <!-- Cart -->
@@ -42,10 +42,7 @@
                             href="/about">About Us</a></li>
                     <li class="md:ml-4"><a
                             class="nav-link py-2 inline-block text-gray-800 md:text-white md:px-2 font-semibold hover:text-green-600 transition-colors duration-300"
-                            href="/shop">Plants</a></li>
-                    <li class="md:ml-4"><a
-                            class="nav-link py-2 inline-block text-gray-800 md:text-white md:px-2 font-semibold hover:text-green-600 transition-colors duration-300"
-                            href="/care-guide">Care Guide</a></li>
+                            href="/shop">Shop</a></li>
 
                     <div class="ml-auto flex items-center">
                         <!-- Cart -->

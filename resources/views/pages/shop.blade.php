@@ -63,7 +63,7 @@
                     <div
                         class="bg-white rounded-lg shadow-lg overflow-hidden transition-transform duration-300 hover:shadow-xl hover:-translate-y-1 flex flex-col">
                         <a href="{{ route('products.show', $product->slug) }}" class="block">
-                            <img src="{{ asset('images/' . $product->image) }}" alt="{{ $product->name }}"
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="{{ $product->name }}"
                                 class="w-full h-64 object-cover">
                         </a>
                         <div class="p-4 flex-1 flex flex-col justify-between">

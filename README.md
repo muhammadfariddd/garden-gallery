@@ -121,7 +121,7 @@ Ikuti panduan berikut untuk menjalankan proyek ini secara lokal di perangkat And
 
 ### 🧑‍💼 Akses Dasbor Admin
 
-Gunakan kredensial berikut untuk masuk ke dasbor admin di `admin/login`. Akun ini dibuat secara otomatis oleh *database seeder*.
+Gunakan kredensial berikut untuk masuk ke dasbor admin di `/admin/login`. Akun ini dibuat secara otomatis oleh *database seeder*.
 
 -   **Email:** `admin@example.com`
 -   **Password:** `password`
